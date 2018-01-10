@@ -1,0 +1,5 @@
+---
+- hosts: gridgainGroup
+  tasks:
+    - name: test gridgain performance
+      shell: cd ~/apache-ignite-fabric-2.3.0-bin/benchmarks/bin; ./benchmark-run-all.sh ~/apache-ignite-fabric-2.3.0-bin/benchmarks/config/benchmark-Paraller-2Servers-8Drivers.properties

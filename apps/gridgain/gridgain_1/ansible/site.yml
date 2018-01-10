@@ -1,0 +1,6 @@
+---
+- name: Install gridgain
+  hosts: gridgainGroup
+  roles:
+    - gridgain
+

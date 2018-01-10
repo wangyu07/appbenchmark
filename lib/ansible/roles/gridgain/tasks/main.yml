@@ -1,0 +1,20 @@
+---
+
+- name: get gridgain installation package
+  vars:
+    IGNITE_URL: http://mirrors.tuna.tsinghua.edu.cn/apache//ignite/2.3.0/apache-ignite-fabric-2.3.0-bin.zip
+  #get_url:
+  #  url: http://mirrors.tuna.tsinghua.edu.cn/apache//ignite/2.3.0/apache-ignite-fabric-2.3.0-bin.zip
+  #  dest: ~/
+  #  mode: 0644
+  shell: wget -O ~/apache-ignite-fabric-2.3.0-bin.zip "{{ IGNITE_URL }}"
+  when: 
+
+- name: install gridgain
+  shell: rm -rf ~/apache-ignite-fabric-2.3.0-bin; unzip ~/apache-ignite-fabric-2.3.0-bin.zip
+
+- name: copy properties files
+  copy:
+    src: ../files/
+    dest: ~/apache-ignite-fabric-2.3.0-bin/benchmarks/config
+    mode: 0644
